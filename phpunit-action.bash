@@ -4,7 +4,7 @@ github_action_path=$(dirname "$0")
 docker_tag=$(cat ./docker_tag)
 echo "Docker tag: $docker_tag" >> output.log 2>&1
 
-composer require pestphp/pest --dev --with-all-dependencies
+composer require pestphp/pest #--dev --with-all-dependencies
 
 command_string=("/opt/vendor/bin/pest")
 
@@ -79,7 +79,7 @@ then
 fi
 
 chmod +x vendor/bin/pest
-ls -l vendor/bin/
+pwd
 
 echo "Command: " "${command_string[@]}" >> output.log 2>&1
 docker run --rm \
