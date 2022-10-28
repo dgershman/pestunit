@@ -13,7 +13,7 @@ phar_url="${phar_url}.phar"
 curl --silent -H "User-agent: cURL (https://github.com/php-actions)" -L "$phar_url" > "${github_action_path}/phpunit.phar"
 chmod +x "${github_action_path}/phpunit.phar"
 
-command_string=("phpunit")
+command_string=("pest")
 
 if [ -n "$ACTION_CONFIGURATION" ]
 then
