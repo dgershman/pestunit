@@ -78,9 +78,11 @@ then
 	command_string+=($ACTION_ARGS)
 fi
 
+chmod +x vendor/bin/pest
+
 echo "Command: " "${command_string[@]}" >> output.log 2>&1
 docker run --rm \
-	--volume "${github_action_path}/vendor/bin":/opt/vendor/bin \
+	--volume "${github_action_path}/vendor/bin/pest":/opt/vendor/bin/pest \
 	--volume "${GITHUB_WORKSPACE}":/app \
 	--workdir /app \
 	--network host \
