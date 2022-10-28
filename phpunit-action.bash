@@ -4,16 +4,9 @@ github_action_path=$(dirname "$0")
 docker_tag=$(cat ./docker_tag)
 echo "Docker tag: $docker_tag" >> output.log 2>&1
 
-phar_url="https://phar.phpunit.de/phpunit"
-if [ "$ACTION_VERSION" != "latest" ]
-then
-	phar_url="${phar_url}-${ACTION_VERSION}"
-fi
-phar_url="${phar_url}.phar"
-curl --silent -H "User-agent: cURL (https://github.com/php-actions)" -L "$phar_url" > "${github_action_path}/phpunit.phar"
-chmod +x "${github_action_path}/phpunit.phar"
+composer require pestphp/pest --dev --with-all-dependencies
 
-command_string=("pest")
+command_string=("vendor/bin/pest")
 
 if [ -n "$ACTION_CONFIGURATION" ]
 then
