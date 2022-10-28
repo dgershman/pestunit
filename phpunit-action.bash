@@ -79,11 +79,11 @@ then
 fi
 
 chmod +x vendor/bin/pest
-ls -l /vendor/bin/
+ls -l vendor/bin/
 
 echo "Command: " "${command_string[@]}" >> output.log 2>&1
 docker run --rm \
-	--volume "/vendor/bin/pest":/opt/vendor/bin/pest \
+	--volume "vendor/bin/pest":/opt/vendor/bin/pest \
 	--volume "${GITHUB_WORKSPACE}":/app \
 	--workdir /app \
 	--network host \
