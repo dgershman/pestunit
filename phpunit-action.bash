@@ -6,7 +6,7 @@ echo "Docker tag: $docker_tag" >> output.log 2>&1
 
 composer require pestphp/pest #--dev --with-all-dependencies
 
-command_string=("/opt/vendor/bin/pest")
+command_string=("pest")
 
 if [ -n "$ACTION_CONFIGURATION" ]
 then
@@ -83,7 +83,7 @@ pwd
 
 echo "Command: " "${command_string[@]}" >> output.log 2>&1
 docker run --rm \
-	--volume "$(pwd)/vendor/bin/pest":/opt/vendor/bin/pest \
+	--volume "$(pwd)/vendor/bin/pest":/usr/local/bin/pest \
 	--volume "${GITHUB_WORKSPACE}":/app \
 	--workdir /app \
 	--network host \
