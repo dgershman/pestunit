@@ -83,7 +83,7 @@ pwd
 
 echo "Command: " "${command_string[@]}" >> output.log 2>&1
 docker run --rm \
-	--volume "vendor/bin/pest":/opt/vendor/bin/pest \
+	--volume "$(pwd)/vendor/bin/pest":/opt/vendor/bin/pest \
 	--volume "${GITHUB_WORKSPACE}":/app \
 	--workdir /app \
 	--network host \
